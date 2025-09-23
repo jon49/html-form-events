@@ -4,6 +4,7 @@
   "description": "Eventing system for html-form",
   "main": "html-form-events.js",
   "scripts": {
+    "start": "./tasks/build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,5 +13,9 @@
     "html"
   ],
   "author": "Jon Nyman",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "html-form": "^0.12.0",
+    "html-form-test-suite": "^0.0.1"
+  }
 }

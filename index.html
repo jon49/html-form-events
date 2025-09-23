@@ -1,0 +1,73 @@
+<html lang="en">
+
+<head>
+  <title>HTMF test suite</title>
+
+  <script src="/js/sw-loader.js"></script>
+  <script src="/html-form.js"></script>
+  <script src="/html-form-events.js"></script>
+  <script src="/js/test-framework.js"></script>
+
+  <link href="/css/test.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <h1>&Hfr;&Ffr; HTML-FORM-EVENTS test suite</h1>
+  </header>
+
+  <main>
+    <section id="core">
+      <h2>Core</h2>
+
+      <div class="test">
+        <h3>Test events from server are created and consumable.</h3>
+        <script>
+          test($ => {
+            let button = $.find('button')
+            button.click();
+            $.on(button, "hf:completed", e => {
+              $.assertEq(button.innerText, "Foo", true)
+              $.assertEq(+document.querySelector('.passed-info > output').innerText, 3)
+              $.off()
+            })
+            $.on(button, "event1", e => {
+              $.assertEq(e.detail.ok, "ok")
+            })
+            $.on(button, "event2", e => {
+              $.assertEq(e.detail, true)
+            })
+          })
+        </script>
+        <form action="/demo/" hf-swap="innerHTML">
+          <button>Button</button>
+        </form>
+      </div>
+
+      <div class="test">
+        <h3>Test error is logged.</h3>
+        <script>
+          test($ => {
+            let text
+            console.error = e => text = e
+            let button = $.find('button')
+            button.click();
+            $.on(button, "hf:completed", e => {
+              $.assertEq(text, "HTMF Event Failed")
+              $.off()
+            })
+          })
+        </script>
+        <form action="/fail/" hf-swap="innerHTML">
+          <button>Button</button>
+        </form>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
