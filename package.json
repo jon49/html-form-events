@@ -14,8 +14,8 @@
   ],
   "author": "Jon Nyman",
   "license": "ISC",
-  "dependencies": {
-    "html-form": "^0.12.0",
-    "html-form-test-suite": "^0.0.1"
+  "devDependencies": {
+    "html-form": "^0.12.1",
+    "html-form-test-suite": "^0.1.0"
   }
 }
