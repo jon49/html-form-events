@@ -27,8 +27,9 @@
           test($ => {
             let button = $.find('button')
             button.click();
-            $.on(button, "hf:completed", e => {
+            $.on(button, "hf:completed", async e => {
               $.assertEq(button.innerText, "Foo", true)
+              await sleep(1)
               $.assertEq(+document.querySelector('.passed-info > output').innerText, 3)
               $.off()
             })
@@ -53,7 +54,8 @@
             console.error = e => text = e
             let button = $.find('button')
             button.click();
-            $.on(button, "hf:completed", e => {
+            $.on(button, "hf:completed", async e => {
+              await sleep(1)
               $.assertEq(text, "HTMF Event Failed")
               $.off()
             })

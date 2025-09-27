@@ -1,6 +1,6 @@
 {
   "name": "html-form-events",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Eventing system for html-form",
   "main": "html-form-events.js",
   "scripts": {

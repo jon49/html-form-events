@@ -1,4 +1,4 @@
-document.addEventListener("hf:swapped", e => {
+document.addEventListener("hf:completed", e => {
     let { response, originator } = e.detail
     let { send } = window.htmf
 
