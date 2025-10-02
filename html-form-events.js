@@ -2,7 +2,7 @@ document.addEventListener("hf:completed", e => {
     let { response, originator } = e.detail
     let { send } = window.htmf
 
-    let maybeEvents = response.headers.get("hf-events")
+    let maybeEvents = response?.headers.get("hf-events")
 
     if (maybeEvents) {
         try {
